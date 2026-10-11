@@ -130,18 +130,20 @@
     "url": "$ADMIN_EVENTS_URL",
     "icon": "https://icons.duckduckgo.com/ip3/null.ico",
     "slug": "administration-evenements",
-    "status": "up",
+    "status": "degraded",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 1421,
-    "timeDay": 883,
-    "timeWeek": 1263,
-    "timeMonth": 1406,
-    "timeYear": 1421,
-    "dailyMinutesDown": {}
+    "time": 1479,
+    "timeDay": 2899,
+    "timeWeek": 1719,
+    "timeMonth": 1519,
+    "timeYear": 1479,
+    "dailyMinutesDown": {
+      "2026-10-11": 0
+    }
   },
   {
     "name": "Administration, profils (portail d'accès)",
