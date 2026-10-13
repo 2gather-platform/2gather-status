@@ -131,18 +131,18 @@
     "icon": "https://icons.duckduckgo.com/ip3/null.ico",
     "slug": "administration-evenements",
     "status": "up",
-    "uptime": "95.52%",
+    "uptime": "94.93%",
     "uptimeDay": "0.00%",
-    "uptimeWeek": "62.91%",
-    "uptimeMonth": "91.46%",
-    "uptimeYear": "95.52%",
+    "uptimeWeek": "57.83%",
+    "uptimeMonth": "90.30%",
+    "uptimeYear": "94.93%",
     "time": 1499,
     "timeDay": 2728,
     "timeWeek": 2067,
     "timeMonth": 1577,
     "timeYear": 1499,
     "dailyMinutesDown": {
-      "2026-10-13": 875,
+      "2026-10-13": 1388,
       "2026-10-12": 1440,
       "2026-10-11": 1423
     }
