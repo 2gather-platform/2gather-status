@@ -1,7 +1,7 @@
 url: $ADMIN_EVENTS_URL
-status: degraded
+status: up
 code: 200
-responseTime: 4401
-lastUpdated: 2026-10-14T02:01:34.956Z
+responseTime: 1160
+lastUpdated: 2026-10-14T05:21:56.409Z
 startTime: 2026-08-16T17:06:54.511Z
 generator: Upptime <https://github.com/upptime/upptime>
