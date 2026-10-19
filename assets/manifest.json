@@ -4,8 +4,8 @@
   "description": "État en temps réel des services 2gather, mesuré hors de leur infrastructure.",
   "lang": "fr-FR",
   "display": "minimal-ui",
-  "start_url": "/upptime/",
-  "scope": "/upptime/",
+  "start_url": "/2gather-status/",
+  "scope": "/2gather-status/",
   "background_color": "#faf4e9",
   "theme_color": "#faf4e9",
   "icons": [
