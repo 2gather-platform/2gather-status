@@ -139,13 +139,18 @@ status-website:
   # répertoire est publié tel quel à la racine du site.
   themeUrl: https://2gather-platform.github.io/2gather-status/2gather.css
 
-  logoUrl: https://2gather.events/icon.png
+  # Logo et icônes sont servis par la page elle-même, depuis assets/, et non par
+  # 2gather.events : ce domaine répond `Cross-Origin-Resource-Policy: same-site`,
+  # et le navigateur refuse alors d'afficher ses images sur github.io. Le logo
+  # de la barre restait vide et l'onglet sans icône. L'image Open Graph peut
+  # rester là-bas : les robots qui la lisent n'appliquent pas cette règle.
+  logoUrl: https://2gather-platform.github.io/2gather-status/logo-192.png
 
   # _layout.svelte code en dur deux liens d'icône, l'un annoncé image/svg et
   # l'autre image/png, tous deux alimentés par cette clé. Un PNG rend donc le
   # second exact. Le premier restera mal typé tant que la marque n'aura pas de
   # SVG : `faviconSvg` n'est pas posée plutôt que de pointer un PNG de plus.
-  favicon: https://2gather.events/icon.png
+  favicon: https://2gather-platform.github.io/2gather-status/logo-192.png
 
   # Le lien d'accueil est relatif, pas `/` : Nav.svelte l'écrit tel quel, et
   # `/` mène à la racine de 2gather-platform.github.io, qui n'existe pas. La
@@ -196,7 +201,7 @@ status-website:
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <link rel="alternate" type="application/atom+xml" title="Relevés de disponibilité 2gather" href="https://github.com/2gather-platform/2gather-status/commits/main.atom" />
-    <link rel="apple-touch-icon" sizes="180x180" href="https://2gather.events/apple-icon.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href="https://2gather-platform.github.io/2gather-status/logo-192.png" />
 
 # La page de statut est écrite en anglais par défaut. Laisser des noms de
 # service français sous des libellés anglais est la première chose qui se voit.
