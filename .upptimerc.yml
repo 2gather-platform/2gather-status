@@ -113,7 +113,11 @@ sites:
     maxResponseTime: 2000
 
 status-website:
-  baseUrl: /upptime
+  # Sans domaine propre, GitHub Pages sert le site sous le nom du dépôt, et
+  # cette clé doit le suivre. Restée à /upptime après le transfert du dépôt,
+  # elle faisait chercher scripts et styles sous un chemin vide : la page
+  # s'affichait sans mise en page, figée sur ses indicateurs de chargement.
+  baseUrl: /2gather-status
   name: État des services 2gather
   introTitle: État des services 2gather
   # La cadence annoncée est celle qui est mesurée, pas celle qui est demandée.
@@ -143,9 +147,12 @@ status-website:
   # SVG : `faviconSvg` n'est pas posée plutôt que de pointer un PNG de plus.
   favicon: https://2gather.events/icon.png
 
+  # Le lien d'accueil est relatif, pas `/` : Nav.svelte l'écrit tel quel, et
+  # `/` mène à la racine de 2gather-platform.github.io, qui n'existe pas. La
+  # balise <base> le résout vers l'accueil depuis n'importe quelle page.
   navbar:
     - title: État
-      href: /
+      href: ./
     - title: Historique des relevés
       href: https://github.com/2gather-platform/2gather-status/commits/main
     - title: 2gather.events
