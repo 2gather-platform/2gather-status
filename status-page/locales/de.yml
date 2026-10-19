@@ -1,0 +1,107 @@
+# Version allemande de la page de statut. Mêmes clés que locales/en.yml, voir
+# l'en-tête de ce fichier. Vouvoiement, comme le veut l'usage pour une page
+# publique.
+
+name: Status der 2gather-Dienste
+introTitle: Status der 2gather-Dienste
+introMessage: >-
+  Verfügbarkeit der 2gather-Dienste, gemessen von GitHub-Actions-Runnern und
+  damit außerhalb der überwachten Infrastruktur. Eine Messung wird alle fünf
+  Minuten angefordert, GitHub führt sie in der Praxis jedoch nur etwa alle
+  dreißig Minuten aus, manchmal seltener. Eine Unterbrechung, die kürzer ist
+  als dieser Abstand, kann daher unbemerkt bleiben. Jede Messung wird in den
+  öffentlichen Verlauf des Repositorys aufgenommen, und jede Unterbrechung
+  eröffnet ein datiertes Issue, das bei Wiederherstellung geschlossen wird.
+
+navbar:
+  "./": Status
+  "https://github.com/2gather-platform/2gather-status/commits/main": Messverlauf
+  "https://2gather.events": 2gather.events
+  "https://2gather.me": 2gather.me
+
+# « Events » plutôt que « Veranstaltungen » : c'est le nom du produit,
+# 2gather.events, et l'usage courant en allemand dans ce contexte.
+sites:
+  api: API
+  api-acces-base-de-donnees: API, Datenbankzugriff
+  application-web-evenements: Web-App Events
+  application-web-profils: Web-App Profile
+  domaine-principal: Hauptdomain
+  liens-universels: Universal Links der Apps
+  administration-production: Admin-Konsole, Produktion
+  administration-evenements: Admin-Konsole, Events
+  administration-profils: Admin-Konsole, Profile (Zugangsportal)
+
+i18n:
+  locale: de-DE
+  activeIncidents: Aktuelle Vorfälle
+  allSystemsOperational: Alle Dienste sind betriebsbereit
+  incidentReport: Bericht zu Vorfall $NUMBER ansehen
+  activeIncidentSummary: "Eröffnet am $DATE, $POSTS Meldung(en)"
+  incidentTitle: Details zu Vorfall $NUMBER
+  incidentDetails: Details zum Vorfall
+  incidentFixed: Behoben
+  incidentOngoing: Andauernd
+  incidentOpenedAt: Eröffnet am
+  incidentClosedAt: Geschlossen am
+  incidentViewOnGitHub: Auf GitHub ansehen und verfolgen
+  incidentCommentSummary: Veröffentlicht am $DATE von $AUTHOR
+  incidentBack: Zurück zu allen Vorfällen
+  incidentTitleDown: "Ausfall: $NAME"
+  incidentTitleDegraded: "Eingeschränkte Leistung: $NAME"
+  pastIncidents: Vergangene Vorfälle
+  pastIncidentsResolved: "Behoben nach $MINUTES Minuten, $POSTS Meldung(en)"
+  liveStatus: Aktueller Status
+  overallUptime: "Gesamtverfügbarkeit: $UPTIME"
+  overallUptimeTitle: Gesamtverfügbarkeit
+  averageResponseTime: "Durchschnittliche Antwortzeit: $TIME ms"
+  averageResponseTimeTitle: Durchschnittliche Antwortzeit
+  sevelDayResponseTime: Antwortzeit der letzten 7 Tage
+  responseTimeMs: Antwortzeit (ms)
+  up: 🟩 Betriebsbereit
+  degraded: 🟨 Eingeschränkt
+  down: 🟥 Ausgefallen
+  ms: " ms"
+  loading: Wird geladen
+  navGitHub: GitHub
+  footer: Diese Seite ist [Open Source]($REPO) und läuft mit [Upptime](https://upptime.js.org)
+  pastScheduledMaintenance: Vergangene Wartungen
+  scheduledMaintenance: Geplante Wartung
+  scheduledMaintenanceSummaryStarted: "Begonnen am $DATE, Dauer $DURATION Minuten"
+  scheduledMaintenanceSummaryStarts: "Beginnt am $DATE, Dauer $DURATION Minuten"
+  startedAt: Begonnen am
+  startsAt: Beginnt am
+  duration: Dauer
+  durationMin: $DURATION Minuten
+  incidentCompleted: Abgeschlossen
+  incidentScheduled: Geplant
+  duration24H: 24 Std.
+  duration7D: 7 Tage
+  duration30D: 30 Tage
+  duration1Y: 1 Jahr
+  durationAll: Gesamt
+  errorTitle: Ein Fehler ist aufgetreten
+  errorIntro: Der aktuelle Status der Dienste konnte nicht abgerufen werden.
+  errorText: Bitte versuchen Sie es in wenigen Augenblicken erneut.
+  errorHome: Zurück zur Startseite
+  rateLimitExceededTitle: Anfragelimit erreicht
+  rateLimitExceededIntro: >-
+    Sie haben die Anzahl der pro Stunde erlaubten Anfragen überschritten.
+    Warten Sie, bevor Sie diese Seite erneut aufrufen, oder hinterlegen Sie ein
+    persönliches GitHub-Zugriffstoken, um fortzufahren.
+  rateLimitExceededWhatDoesErrorMean: Was bedeutet dieser Fehler?
+  rateLimitExceededErrorMeaning: >-
+    Diese Seite fragt die GitHub-API ab, um den Status der Dienste in Echtzeit
+    anzuzeigen. GitHub erlaubt 60 Anfragen pro Stunde und IP-Adresse, und
+    dieses Kontingent ist aufgebraucht.
+  rateLimitExceededErrorHowCanFix: Wie lässt sich das beheben?
+  rateLimitExceededErrorFix: >-
+    Das Kontingent Ihrer IP-Adresse wird nach einer Stunde zurückgesetzt. Sie
+    können auch ein persönliches GitHub-Zugriffstoken eingeben, das das Limit
+    auf 5.000 Anfragen pro Stunde anhebt.
+  rateLimitExceededGeneratePAT: So erstellen Sie ein persönliches Zugriffstoken
+  rateLimitExceededHasSet: Ein persönliches Zugriffstoken ist gespeichert.
+  rateLimitExceededRemoveToken: Token entfernen
+  rateLimitExceededGitHubPAT: Persönliches GitHub-Zugriffstoken
+  rateLimitExceededCopyPastePAT: Token hier einfügen
+  rateLimitExceededSaveToken: Token speichern

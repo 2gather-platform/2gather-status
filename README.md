@@ -157,10 +157,11 @@ grep -L "timeout-minutes" .github/workflows/*.yml   # doit ne rien lister
 
 ## Exploitation
 
-Cinq workflows tournent seuls. `Uptime CI` relève l'état, aussi souvent que GitHub le lui accorde,
-voir plus haut. `Response Time CI`, `Graphs CI`, `Static Site CI` et `Summary CI` reconstruisent des
-vues à partir de l'historique, chacun une à quatre fois par jour. Le dépôt est public, donc les
-minutes GitHub Actions ne sont pas décomptées du quota.
+Quatre workflows tournent seuls. `Uptime CI` relève l'état, aussi souvent que GitHub le lui accorde,
+voir plus haut. `Response Time CI`, `Graphs CI` et `Summary CI` reconstruisent des vues à partir de
+l'historique, chacun une à quatre fois par jour. `Status Page CI` publie la page de statut à chaque
+changement de ses sources, voir plus bas. Le dépôt est public, donc les minutes GitHub Actions ne
+sont pas décomptées du quota.
 
 `Update Template CI` et `Updates CI` ne sont pas planifiés, ils se déclenchent à la main. Ces deux
 tâches réécrivent des fichiers de workflow, ce que le jeton natif des Actions n'a pas le droit de
@@ -168,6 +169,26 @@ faire, quelle que soit la permission accordée au dépôt. Les lancer suppose un
 à portée fine, stocké en secret `GH_PAT`, avec droit d'écriture sur Contents, Workflows et Issues.
 Sans ce jeton elles échouent, et c'est pourquoi elles ne sont pas planifiées : un échec quotidien
 dans un dépôt d'état est un mauvais signal.
+
+### Langues de la page
+
+La page s'affiche en français, en anglais ou en allemand. La langue vient, dans l'ordre, du
+paramètre `?lang=` de l'adresse, du dernier choix fait au sélecteur de la barre de navigation, puis
+des langues du navigateur. Un navigateur qui n'en demande aucune des trois reçoit l'anglais.
+
+Upptime ne sait servir qu'une langue. La page est donc construite par `Status Page CI`, qui exécute
+`status-page/build.mjs` : ce script reprend la construction d'Upptime et y ajoute la traduction. Le
+français reste dans `.upptimerc.yml`, l'anglais et l'allemand sont dans `status-page/locales/`. Une
+clé, un service ou un lien de navigation qui manque d'un côté fait échouer la construction, et la
+page en ligne reste alors celle d'avant.
+
+**`Static Site CI` doit rester désactivé.** Il publierait la page d'origine, en français seul, par
+dessus celle-ci. `Update Template CI` réécrit son fichier, mais l'état désactivé est attaché au
+workflow et survit à la réécriture. Après une mise à jour du gabarit, vérifier :
+
+```bash
+gh workflow list --all --repo 2gather-platform/2gather-status   # Static Site CI : disabled_manually
+```
 
 ### Secrets attendus
 
@@ -238,14 +259,14 @@ dig +short status.2gather.events   # doit rendre 2gather-platform.github.io.
 **3. Dans `.upptimerc.yml`, sous `status-website`** : ajouter `cname: status.2gather.events` et
 **supprimer `baseUrl`**. Les deux se concatènent dans le code de génération,
 `config.path = https://{cname}{baseUrl}` : garder `baseUrl` produirait des liens internes vers
-`status.2gather.events/upptime`, qui n'existe pas. `baseUrl` pilote aussi le `--basepath` de
+`status.2gather.events/2gather-status`, qui n'existe pas. `baseUrl` pilote aussi le `--basepath` de
 l'export.
 
 **4. Mettre à jour les trois URL absolues** qui pointent encore vers l'ancien domaine : `themeUrl`
 dans `.upptimerc.yml`, `og:url` dans `customHeadHtml`, et dans `assets/manifest.json` les clés
-`start_url` et `scope`, qui passent de `/upptime/` à `/`.
+`start_url` et `scope`, qui passent de `/2gather-status/` à `/`.
 
-**5. Lancer `Static Site CI`.** La tâche écrit le fichier `CNAME` dans la publication, ce qui règle
+**5. Lancer `Status Page CI`.** La tâche écrit le fichier `CNAME` dans la publication, ce qui règle
 le domaine côté GitHub Pages. Vérifier ensuite que le certificat est émis, dans les réglages Pages
 du dépôt, et cocher _Enforce HTTPS_.
 

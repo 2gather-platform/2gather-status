@@ -1,0 +1,55 @@
+# Construit et publie la page de statut en français, anglais et allemand.
+#
+# Remplace `Static Site CI`, désactivé dans les réglages Actions du dépôt : il
+# publie la page d'origine, en une seule langue, et écraserait celle-ci à
+# chaque passage. Ce fichier n'est pas un gabarit Upptime, `Update Template CI`
+# ne le supprime ni ne le réécrit. Voir status-page/build.mjs.
+#
+# Pas de cron : la page ne contient aucune donnée, elle lit l'état à
+# l'exécution depuis le dépôt. Elle ne change que si ses sources changent.
+name: Status Page CI
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".upptimerc.yml"
+      - "assets/**"
+      - "status-page/**"
+      - ".github/workflows/status-page.yml"
+  pull_request:
+    paths:
+      - ".upptimerc.yml"
+      - "assets/**"
+      - "status-page/**"
+      - ".github/workflows/status-page.yml"
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  release:
+    name: Build and deploy status page
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Build site
+        run: node status-page/build.mjs
+      # Une pull request construit sans publier : une traduction incomplète
+      # ou une retouche qui ne s'applique plus se voit avant le merge.
+      - name: GitHub Pages Deploy
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site/__sapper__/export
+          force_orphan: false
+          user_name: Amaury Poltavtseef
+          user_email: 34680117+Asteerix@users.noreply.github.com
