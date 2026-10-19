@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta name="theme-color" content="#333333" />
     <script>
-      // Choisit la langue avant tout rendu : `?lang=` dans l'adresse, sinon le
-      // choix mémorisé par le sélecteur, sinon la première langue du navigateur
-      // que la page sait parler, sinon la langue de repli. Le résultat est posé
-      // sur <html lang>, où src/i18n.js le relit au démarrage.
+      // Choisit la langue avant tout rendu : `?lang=` dans l'adresse, retenu
+      // le temps de l'onglet, sinon le choix mémorisé par le sélecteur, sinon la
+      // première langue du navigateur que la page sait parler, sinon la langue
+      // de repli. Le résultat est posé sur <html lang>, où src/i18n.js le relit
+      // au démarrage.
       //
       // Le HTML exporté est dans la langue par défaut. Pour une autre langue,
       // la page reste masquée jusqu'à ce que l'application l'ait rendue, plutôt
@@ -21,6 +22,13 @@
         var language = null;
         try {
           language = pick(new URLSearchParams(location.search).get("lang"));
+          // Les liens de la barre de navigation rechargent la page sans le
+          // paramètre : arrivé par un lien en allemand, on y reste jusqu'à la
+          // fin de la visite, sans toucher au choix mémorisé.
+          if (language) sessionStorage.setItem(languages.storageKey, language);
+        } catch (error) {}
+        try {
+          language = language || pick(sessionStorage.getItem(languages.storageKey));
         } catch (error) {}
         try {
           language = language || pick(localStorage.getItem(languages.storageKey));

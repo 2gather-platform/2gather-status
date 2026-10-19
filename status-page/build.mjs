@@ -161,6 +161,22 @@ for (const [file, helper, from, to] of [
   await edit(file, from, to);
 }
 
+// La page d'historique d'un service ne pose pas de titre, et l'onglet n'affichait
+// que l'adresse.
+await edit(
+  "src/routes/history/[number].svelte",
+  `  export let slug;
+</script>`,
+  `  import config from "../../data/config.json";
+  import { siteName } from "../../i18n";
+  export let slug;
+</script>
+
+<svelte:head>
+  <title>{siteName(slug) || slug} · {config["status-website"].name}</title>
+</svelte:head>`
+);
+
 run("npm", ["install", "--no-audit", "--no-fund", "--loglevel=error"], {
   env: { ...process.env, CYPRESS_INSTALL_BINARY: "0" },
 });

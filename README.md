@@ -173,8 +173,9 @@ dans un dépôt d'état est un mauvais signal.
 ### Langues de la page
 
 La page s'affiche en français, en anglais ou en allemand. La langue vient, dans l'ordre, du
-paramètre `?lang=` de l'adresse, du dernier choix fait au sélecteur de la barre de navigation, puis
-des langues du navigateur. Un navigateur qui n'en demande aucune des trois reçoit l'anglais.
+paramètre `?lang=` de l'adresse (retenu jusqu'à la fermeture de l'onglet), du dernier choix fait au
+sélecteur de la barre de navigation, puis des langues du navigateur. Un navigateur qui n'en demande
+aucune des trois reçoit l'anglais.
 
 Upptime ne sait servir qu'une langue. La page est donc construite par `Status Page CI`, qui exécute
 `status-page/build.mjs` : ce script reprend la construction d'Upptime et y ajoute la traduction. Le

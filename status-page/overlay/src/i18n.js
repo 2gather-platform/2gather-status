@@ -42,7 +42,7 @@ export const applyLanguage = (code) => {
   for (const item of website.navbar || []) item.title = translation.navbar[item.href];
 };
 
-const siteName = (slug) =>
+export const siteName = (slug) =>
   ((translations[current] || {}).sites || {})[slug] ||
   (config.sites.find((site) => site.slug === slug) || {}).name;
 
@@ -69,7 +69,7 @@ export const localizeIncidentTitle = (incident) => {
 
 // Un choix fait au sélecteur prime ensuite sur la langue du navigateur. Pas de
 // mémorisation si le stockage est refusé : la page reste utilisable, le choix
-// tient le temps de la visite par le paramètre `?lang=` de l'adresse.
+// ne tient alors que sur les pages ouvertes avec `?lang=` dans l'adresse.
 export const rememberLanguage = (code) => {
   try {
     localStorage.setItem(languages.storageKey, code);

@@ -13,6 +13,10 @@ const start = () => {
     // qu'il les trouve, sans les comparer. On rend donc la page à neuf.
     target.textContent = '';
   }
+  // Svelte ne reprend pas les balises de <head> exportées, il en ajoute de
+  // nouvelles à côté. Les alternates de LanguageSwitcher.svelte, qui suivent
+  // l'adresse, resteraient sinon en double et périmés après une navigation.
+  document.head.querySelectorAll('link[hreflang]').forEach((link) => link.remove());
   const reveal = () => root.classList.remove('i18n-pending');
   Promise.resolve(sapper.start({ target })).then(reveal, reveal);
 };
