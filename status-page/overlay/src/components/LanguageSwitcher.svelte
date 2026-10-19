@@ -7,13 +7,21 @@
   const current = currentLanguage();
   const options = languageOptions();
   const base = ((config["status-website"] || {}).baseUrl || "").replace(/\/$/, "");
+
+  // Le HTML exporté sous /service-worker-index.html sert aussi de page 404 à
+  // GitHub Pages, renvoyée pour tout lien profond. Cette adresse-là n'a pas
+  // d'équivalent à annoncer : les alternates de la page réelle sont posés au
+  // démarrage, dans le navigateur.
+  $: shell = $page.path === "/service-worker-index.html";
 </script>
 
 <svelte:head>
-  {#each options as option}
-    <link rel="alternate" hreflang={option.code} href={`${config.path}${$page.path}?lang=${option.code}`} />
-  {/each}
-  <link rel="alternate" hreflang="x-default" href={`${config.path}${$page.path}`} />
+  {#if !shell}
+    {#each options as option}
+      <link rel="alternate" hreflang={option.code} href={`${config.path}${$page.path}?lang=${option.code}`} />
+    {/each}
+    <link rel="alternate" hreflang="x-default" href={`${config.path}${$page.path}`} />
+  {/if}
 </svelte:head>
 
 <!--

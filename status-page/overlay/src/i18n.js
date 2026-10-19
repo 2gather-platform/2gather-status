@@ -42,7 +42,7 @@ export const applyLanguage = (code) => {
   for (const item of website.navbar || []) item.title = translation.navbar[item.href];
 };
 
-const siteName = (slug) =>
+export const siteName = (slug) =>
   ((translations[current] || {}).sites || {})[slug] ||
   (config.sites.find((site) => site.slug === slug) || {}).name;
 
