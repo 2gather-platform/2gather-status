@@ -196,6 +196,8 @@ status-website:
     <meta property="og:description" content="État en temps réel des services 2gather, mesuré hors de leur infrastructure." />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_GB" />
+    <meta property="og:locale:alternate" content="de_DE" />
     <meta property="og:url" content="https://2gather-platform.github.io/2gather-status/" />
     <meta property="og:image" content="https://2gather.events/2gather/og.png" />
     <meta property="og:image:width" content="1200" />
@@ -207,6 +209,11 @@ status-website:
 # service français sous des libellés anglais est la première chose qui se voit.
 # `locale` ne fait pas que traduire : il gouverne le format des dates.
 # Ces clés servent aussi à la table générée dans le README.
+#
+# Le français est la langue par défaut de la page, pas la seule : l'anglais et
+# l'allemand vivent dans status-page/locales/. Toute clé, tout service et tout
+# lien de navigation ajouté ici doit y être traduit, sans quoi la construction
+# de la page échoue.
 i18n:
   locale: fr-FR
   activeIncidents: Incidents en cours
@@ -222,6 +229,12 @@ i18n:
   incidentViewOnGitHub: Consulter et suivre sur GitHub
   incidentCommentSummary: Publié le $DATE par $AUTHOR
   incidentBack: Retour à tous les incidents
+  # Clés propres à la page multilingue, ignorées d'Upptime. Il titre ses
+  # issues en anglais et en dur, « ⚠️ API has degraded performance » ; la page
+  # les réécrit à l'affichage avec ces gabarits. Le type d'incident vient en
+  # tête parce que plusieurs noms de service contiennent déjà une virgule.
+  incidentTitleDown: "Indisponibilité : $NAME"
+  incidentTitleDegraded: "Performances dégradées : $NAME"
   pastIncidents: Incidents passés
   pastIncidentsResolved: "Résolu en $MINUTES minutes, $POSTS message(s)"
   liveStatus: État en direct

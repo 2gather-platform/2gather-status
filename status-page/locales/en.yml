@@ -1,0 +1,108 @@
+# Version anglaise de la page de statut. Chaque clé double son équivalent
+# français de .upptimerc.yml : `name`, `introTitle` et `introMessage` sous
+# `status-website`, les titres de `navbar` repérés par leur `href`, les noms
+# de service par leur `slug`, et les libellés de la page sous `i18n`.
+#
+# La construction échoue si une clé manque ou n'existe pas côté français :
+# ajouter un service ou un lien de navigation, c'est le traduire ici aussi.
+
+name: 2gather service status
+introTitle: 2gather service status
+introMessage: >-
+  Availability of 2gather services, measured from GitHub Actions runners,
+  outside the monitored infrastructure. A check is requested every five
+  minutes; in practice GitHub runs it roughly every thirty minutes, sometimes
+  less often, so an outage shorter than that interval may go unnoticed. Every
+  measurement is added to the repository's public history, and an outage opens
+  a dated issue that is closed once service is restored.
+
+navbar:
+  "./": Status
+  "https://github.com/2gather-platform/2gather-status/commits/main": Check history
+  "https://2gather.events": 2gather.events
+  "https://2gather.me": 2gather.me
+
+sites:
+  api: API
+  api-acces-base-de-donnees: API, database access
+  application-web-evenements: Events web app
+  application-web-profils: Profiles web app
+  domaine-principal: Main domain
+  liens-universels: App universal links
+  administration-production: Admin console, production
+  administration-evenements: Admin console, events
+  administration-profils: Admin console, profiles (access portal)
+
+i18n:
+  # Format britannique : jour avant mois et horloge sur 24 heures, comme les
+  # deux autres langues de la page.
+  locale: en-GB
+  activeIncidents: Ongoing incidents
+  allSystemsOperational: All services are operational
+  incidentReport: View the report for incident $NUMBER
+  activeIncidentSummary: "Opened on $DATE, $POSTS update(s)"
+  incidentTitle: Incident $NUMBER details
+  incidentDetails: Incident details
+  incidentFixed: Resolved
+  incidentOngoing: Ongoing
+  incidentOpenedAt: Opened on
+  incidentClosedAt: Closed on
+  incidentViewOnGitHub: View and follow on GitHub
+  incidentCommentSummary: Posted on $DATE by $AUTHOR
+  incidentBack: Back to all incidents
+  incidentTitleDown: "Outage: $NAME"
+  incidentTitleDegraded: "Degraded performance: $NAME"
+  pastIncidents: Past incidents
+  pastIncidentsResolved: "Resolved in $MINUTES minutes, $POSTS update(s)"
+  liveStatus: Live status
+  overallUptime: "Overall uptime: $UPTIME"
+  overallUptimeTitle: Overall uptime
+  averageResponseTime: "Average response time: $TIME ms"
+  averageResponseTimeTitle: Average response time
+  sevelDayResponseTime: Response time over 7 days
+  responseTimeMs: Response time (ms)
+  up: 🟩 Operational
+  degraded: 🟨 Degraded
+  down: 🟥 Down
+  ms: " ms"
+  loading: Loading
+  navGitHub: GitHub
+  footer: This page is [open source]($REPO), powered by [Upptime](https://upptime.js.org)
+  pastScheduledMaintenance: Past maintenance
+  scheduledMaintenance: Scheduled maintenance
+  scheduledMaintenanceSummaryStarted: "Started on $DATE, lasting $DURATION minutes"
+  scheduledMaintenanceSummaryStarts: "Starts on $DATE, lasting $DURATION minutes"
+  startedAt: Started on
+  startsAt: Starts on
+  duration: Duration
+  durationMin: $DURATION minutes
+  incidentCompleted: Completed
+  incidentScheduled: Scheduled
+  duration24H: 24 h
+  duration7D: 7 days
+  duration30D: 30 days
+  duration1Y: 1 year
+  durationAll: all
+  errorTitle: Something went wrong
+  errorIntro: The latest service status could not be retrieved.
+  errorText: Please try again in a few moments.
+  errorHome: Back to the home page
+  rateLimitExceededTitle: Request limit reached
+  rateLimitExceededIntro: >-
+    You have exceeded the number of requests allowed per hour. Wait before
+    opening this page again, or add a GitHub personal access token to continue.
+  rateLimitExceededWhatDoesErrorMean: What does this error mean?
+  rateLimitExceededErrorMeaning: >-
+    This page queries the GitHub API to show service status in real time.
+    GitHub allows 60 requests per hour per IP address, and that quota has been
+    used up.
+  rateLimitExceededErrorHowCanFix: How can I fix it?
+  rateLimitExceededErrorFix: >-
+    Your IP address quota resets after an hour. You can also enter a GitHub
+    personal access token, which raises the limit to 5,000 requests per hour.
+  rateLimitExceededGeneratePAT: How to generate a personal access token
+  rateLimitExceededHasSet: A personal access token is saved.
+  rateLimitExceededRemoveToken: Remove token
+  rateLimitExceededGitHubPAT: GitHub personal access token
+  rateLimitExceededCopyPastePAT: Paste your token here
+  rateLimitExceededSaveToken: Save token
