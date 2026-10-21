@@ -58,9 +58,9 @@
     "url": "https://2gather.me",
     "icon": "https://icons.duckduckgo.com/ip3/2gather.me.ico",
     "slug": "application-web-profils",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -69,7 +69,9 @@
     "timeWeek": 512,
     "timeMonth": 684,
     "timeYear": 596,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-10-21": 0
+    }
   },
   {
     "name": "Domaine principal",
@@ -131,11 +133,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/null.ico",
     "slug": "administration-evenements",
     "status": "up",
-    "uptime": "94.97%",
+    "uptime": "94.98%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "98.58%",
     "uptimeMonth": "89.11%",
-    "uptimeYear": "94.97%",
+    "uptimeYear": "94.98%",
     "time": 1578,
     "timeDay": 2114,
     "timeWeek": 1868,
