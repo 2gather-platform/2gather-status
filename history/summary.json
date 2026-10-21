@@ -58,19 +58,19 @@
     "url": "https://2gather.me",
     "icon": "https://icons.duckduckgo.com/ip3/2gather.me.ico",
     "slug": "application-web-profils",
-    "status": "down",
-    "uptime": "99.58%",
-    "uptimeDay": "72.06%",
-    "uptimeWeek": "96.01%",
-    "uptimeMonth": "99.08%",
-    "uptimeYear": "99.58%",
-    "time": 596,
-    "timeDay": 532,
-    "timeWeek": 512,
-    "timeMonth": 684,
-    "timeYear": 596,
+    "status": "up",
+    "uptime": "99.55%",
+    "uptimeDay": "70.22%",
+    "uptimeWeek": "95.75%",
+    "uptimeMonth": "99.02%",
+    "uptimeYear": "99.55%",
+    "time": 594,
+    "timeDay": 521,
+    "timeWeek": 511,
+    "timeMonth": 679,
+    "timeYear": 594,
     "dailyMinutesDown": {
-      "2026-10-21": 402
+      "2026-10-21": 429
     }
   },
   {
